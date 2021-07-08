@@ -2094,6 +2094,11 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
+"@manucii/klinechart@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@manucii/klinechart/-/klinechart-1.0.0.tgz#e05f905e024bcbe197e0fcf8529bd9d12292b9a8"
+  integrity sha512-Zhgmyk2JzRj5nrHK30P2oNRQrq+8iSfaypWAtPqw1j/CGsDHiSg9ES1OZD0jW64B08WAtyv6EgcD4FbDTj21TA==
+
 "@nodelib/fs.scandir@2.1.4":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.4.tgz#d4b3549a5db5de2683e0c1071ab4f140904bbf69"
@@ -7667,6 +7672,11 @@ kleur@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-3.0.3.tgz#a79c9ecc86ee1ce3fa6206d1216c501f147fc07e"
   integrity sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==
+
+klinecharts@^7.5.0:
+  version "7.5.0"
+  resolved "https://registry.yarnpkg.com/klinecharts/-/klinecharts-7.5.0.tgz#0a9a39e9838129a6c6bbbec5c6e0bb9790df5f8c"
+  integrity sha512-SKT3f8litQbwaZ5vJz7YeRff+VYsqyoNvVtfZEzUWKe81qup0x0PmntVKXImCANOLKCigIiUKWJ1W9MR+aJOpg==
 
 klona@^2.0.4:
   version "2.0.4"

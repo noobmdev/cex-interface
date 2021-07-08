@@ -1,22 +1,35 @@
-import { Box, HStack, Icon, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  HStack,
+  Icon,
+  Text,
+  useBreakpointValue,
+} from '@chakra-ui/react';
 import Logo from 'assets/svg/Logo';
 import { ColorModeSwitcher } from 'components/common/ColorModeSwitcher';
 import CustomLink from 'components/common/CustomLink';
 import useColors from 'hooks/useColors';
 import React from 'react';
 import { MdArrowDropDown } from 'react-icons/md';
+import { HiOutlineMenu } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
-  const { bgPrimaryColor, primaryColor, textPrimaryColor, borderColor } =
-    useColors();
+  const {
+    bgPrimaryColor,
+    bgNormalColor,
+    primaryColor,
+    textPrimaryColor,
+    borderColor,
+  } = useColors();
 
   return (
     <HStack
       h="4em"
       borderBottom="0.5px solid"
       borderColor={borderColor}
-      px={{ base: '0.5em', md: '1em', lg: '2em' }}
+      px={{ base: '0.5em', md: '1em', xl: '2em' }}
       py="0.5em"
       pos="fixed"
       top="0"
@@ -32,24 +45,29 @@ const Header = () => {
       <HStack
         flex="1"
         pl="1em"
-        borderLeft="1px solid"
+        borderLeft={{
+          base: 'none',
+          md: '1px solid',
+          xl: '1px solid',
+        }}
         borderColor={borderColor}
-        justifyContent="space-between"
+        justifyContent={{
+          base: 'flex-end',
+          md: 'flex-end',
+          lg: 'space-between',
+          xl: 'space-between',
+        }}
       >
-        <HStack spacing="8" color={textPrimaryColor}>
+        <HStack
+          d={{ base: 'none', md: 'none', lg: 'flex', xl: 'flex' }}
+          spacing="8"
+          color={textPrimaryColor}
+        >
           <CustomLink to="/trade">
             <Text>Exchange</Text>
           </CustomLink>
           <CustomLink to="/buy-crypto">
-            <HStack
-              cursor="pointer"
-              _hover={
-                {
-                  // color: 'blue.700',
-                }
-              }
-              role="group"
-            >
+            <HStack cursor="pointer" _hover={{}} role="group">
               <Text>Buy Crypto</Text>
               <Icon
                 style={{
@@ -71,28 +89,49 @@ const Header = () => {
             <Text>Discover</Text>
           </CustomLink>
         </HStack>
+
         <HStack>
           <HStack
-            cursor="pointer"
-            _hover={{
-              color: primaryColor,
-            }}
-            role="group"
+            spacing={4}
+            d={{ base: 'none', md: 'flex', lg: 'flex', xl: 'flex' }}
           >
-            <Text>EN/USD</Text>
-            <Icon
-              style={{
-                marginLeft: 0,
-              }}
-              fontSize="2xl"
-              as={MdArrowDropDown}
-              _groupHover={{
-                transform: 'rotate(180deg)',
-                transition: '.3s all',
-              }}
-            />
+            <Button size="sm" bg={{}} _hover={{}}>
+              Login
+            </Button>
+            <Button size="sm" bg={primaryColor} _hover={{}}>
+              Register
+            </Button>
+            <Box d={{ base: 'none', md: 'none', xl: 'flex' }}>
+              <HStack
+                cursor="pointer"
+                _hover={{
+                  color: primaryColor,
+                }}
+                role="group"
+              >
+                <Text>EN/USD</Text>
+                <Icon
+                  style={{
+                    marginLeft: 0,
+                  }}
+                  fontSize="2xl"
+                  as={MdArrowDropDown}
+                  _groupHover={{
+                    transform: 'rotate(180deg)',
+                    transition: '.3s all',
+                  }}
+                />
+              </HStack>
+              <ColorModeSwitcher />
+            </Box>
           </HStack>
-          <ColorModeSwitcher />
+          <Icon
+            d={{ base: 'block', md: 'block', xl: 'none' }}
+            fontSize="4xl"
+            cursor="pointer"
+            pl="0.25em"
+            as={HiOutlineMenu}
+          />
         </HStack>
       </HStack>
     </HStack>
