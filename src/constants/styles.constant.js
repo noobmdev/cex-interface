@@ -1,3 +1,5 @@
+export const headerHeight = '4em';
+
 export const colors = {
   primary: {
     light: '#0D89E5',
@@ -33,4 +35,9 @@ export const bgColors = {
     light: '#ffffff',
     dark: '#181a20',
   },
+};
+
+export const fluctuationsColors = {
+  up: '#47c287',
+  down: '#d9265b',
 };

@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { init, dispose } from 'klinecharts';
 import generatedKLineDataList from './generatedLineDataList';
 
-const KLineChart = () => {
+const KLineChart = ({ w, h }) => {
+  console.log(w, h);
   function updateData(kLineChart) {
     setTimeout(() => {
       if (kLineChart) {
@@ -29,9 +30,7 @@ const KLineChart = () => {
     };
   }, []);
 
-  return (
-    <div id="chart-container" style={{ height: '20em', width: '20em' }}></div>
-  );
+  return <div id="chart-container" style={{ width: w, height: h }}></div>;
 };
 
 export default KLineChart;

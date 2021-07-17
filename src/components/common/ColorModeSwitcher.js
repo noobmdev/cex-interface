@@ -21,11 +21,11 @@ export const ColorModeSwitcher = props => {
       color="current"
       onClick={toggleColorMode}
       icon={<SwitchIcon />}
-      _focus={{}}
+      _focus
       _hover={{
         color: primaryColor,
       }}
-      _active={{}}
+      _active
       {...props}
     />
   );

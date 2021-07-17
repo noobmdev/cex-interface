@@ -14,6 +14,7 @@ import React from 'react';
 import { MdArrowDropDown } from 'react-icons/md';
 import { HiOutlineMenu } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
+import { headerHeight } from 'constants/styles.constant';
 
 const Header = () => {
   const {
@@ -26,15 +27,11 @@ const Header = () => {
 
   return (
     <HStack
-      h="4em"
+      h={headerHeight}
       borderBottom="0.5px solid"
       borderColor={borderColor}
       px={{ base: '0.5em', md: '1em', xl: '2em' }}
       py="0.5em"
-      pos="fixed"
-      top="0"
-      left="0"
-      right="0"
       bg={bgPrimaryColor}
     >
       <Link to="/">
@@ -44,19 +41,13 @@ const Header = () => {
       </Link>
       <HStack
         flex="1"
-        pl="1em"
-        borderLeft={{
-          base: 'none',
-          md: '1px solid',
-          xl: '1px solid',
-        }}
-        borderColor={borderColor}
         justifyContent={{
           base: 'flex-end',
           md: 'flex-end',
           lg: 'space-between',
           xl: 'space-between',
         }}
+        pl="1em"
       >
         <HStack
           d={{ base: 'none', md: 'none', lg: 'flex', xl: 'flex' }}
@@ -67,7 +58,7 @@ const Header = () => {
             <Text>Exchange</Text>
           </CustomLink>
           <CustomLink to="/buy-crypto">
-            <HStack cursor="pointer" _hover={{}} role="group">
+            <HStack cursor="pointer" _hover role="group">
               <Text>Buy Crypto</Text>
               <Icon
                 style={{
@@ -95,10 +86,12 @@ const Header = () => {
             spacing={4}
             d={{ base: 'none', md: 'flex', lg: 'flex', xl: 'flex' }}
           >
-            <Button size="sm" bg={{}} _hover={{}}>
-              Login
+            <Button size="sm" bg _hover>
+              <CustomLink to="/auth/login">
+                <Text>Login</Text>
+              </CustomLink>
             </Button>
-            <Button size="sm" bg={primaryColor} _hover={{}}>
+            <Button size="sm" bg={primaryColor} _hover>
               Register
             </Button>
             <Box d={{ base: 'none', md: 'none', xl: 'flex' }}>

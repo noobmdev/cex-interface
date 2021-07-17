@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
   return (
     <Box bg={bgNormalColor} minH="100vh">
       <Header />
-      <Box p26264e26264et="4em">{children}</Box>
+      <Box>{children}</Box>
     </Box>
   );
 };
