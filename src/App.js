@@ -8,6 +8,8 @@ import { IntlProvider } from 'react-intl';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from 'routes';
 
+import './App.css';
+
 const queryClient = new QueryClient();
 
 function App() {

@@ -28,16 +28,16 @@ export const bgColors = {
     dark: '#26264e',
   },
   subPrimary: {
-    light: '#ffffff',
-    dark: '#7373d6',
+    light: '#eaeaea',
+    dark: '#4a4e69',
   },
   normal: {
-    light: '#ffffff',
+    light: '#eeeeee',
     dark: '#181a20',
   },
 };
 
 export const fluctuationsColors = {
-  up: '#47c287',
-  down: '#d9265b',
+  up: '#5bc77f',
+  down: '#f5295a',
 };

@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  Flex,
   Grid,
   GridItem,
   HStack,
@@ -8,7 +9,10 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
+  Table,
+  Td,
   Text,
+  Th,
   VStack,
 } from '@chakra-ui/react';
 import { headerHeight } from 'constants/styles.constant';
@@ -18,6 +22,7 @@ import { FiSearch } from 'react-icons/fi';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { VscArrowSmallDown, VscArrowSmallUp } from 'react-icons/vsc';
 import { FaBitcoin } from 'react-icons/fa';
+import { FaSignal } from 'react-icons/fa';
 import { fluctuationsColors } from 'constants/styles.constant';
 import KLineChart from 'components/trade/KLineChart';
 
@@ -27,63 +32,294 @@ const Trade = () => {
     bgSubPrimaryColor,
     bgNormalColor,
     primaryColor,
+    textPrimaryColor,
     textNormalColor,
   } = useColors();
 
   return (
     <Box>
+      <HStack
+        bg={bgPrimaryColor}
+        m="1em 1em 0"
+        p="1em"
+        justify="space-between"
+        spacing={4}
+      >
+        <Flex
+          flexDir={{ base: 'column', lg: 'row', xl: 'row' }}
+          align="center"
+          justify="center"
+        >
+          <Box mr="2em">
+            <Text fontSize="xl" as="b">
+              BTC/USDT
+            </Text>
+            <Text d={{ base: 'none', md: 'block', lg: 'block', xl: 'block' }}>
+              Bitcoin
+            </Text>
+          </Box>
+          <Box>
+            <Text fontSize="3xl" color={fluctuationsColors.up}>
+              31,590.62
+            </Text>
+            <Text fontSize="xs">161.35 +0.51%</Text>
+          </Box>
+        </Flex>
+
+        <HStack>
+          <Flex
+            flexDir={{ base: 'column', lg: 'row', xl: 'row' }}
+            mr={{ base: '0', sm: '1em', md: '6em', lg: '6em', xl: '6em' }}
+          >
+            <Box mr={{ base: 0, lg: '6em', xl: '6em' }}>
+              <Box fontSize="xs">
+                <Text
+                  color={textNormalColor}
+                  fontSize={{ base: 'x-small', lg: 'xs', xl: 'xs' }}
+                >
+                  24h High
+                </Text>
+                <Text>32,249.18</Text>
+              </Box>
+            </Box>
+            <Box mt={{ base: '1em', lg: 0, xl: 0 }}>
+              <Box fontSize="xs">
+                <Text
+                  color={textNormalColor}
+                  fontSize={{ base: 'x-small', lg: 'xs', xl: 'xs' }}
+                >
+                  24h Low
+                </Text>
+                <Text>32,249.18</Text>
+              </Box>
+            </Box>
+          </Flex>
+          <Flex flexDir={{ base: 'column', lg: 'row', xl: 'row' }}>
+            <Box mr={{ base: 0, lg: '6em', xl: '6em' }}>
+              <Box fontSize="xs">
+                <Text
+                  color={textNormalColor}
+                  fontSize={{ base: 'x-small', lg: 'xs', xl: 'xs' }}
+                >
+                  24h Volume(BTC)
+                </Text>
+                <Text>45,791.05</Text>
+              </Box>
+            </Box>
+            <Box mt={{ base: '1em', lg: 0, xl: 0 }}>
+              <Box fontSize="xs">
+                <Text
+                  color={textNormalColor}
+                  fontSize={{ base: 'x-small', lg: 'xs', xl: 'xs' }}
+                >
+                  24h Volume(USDT)
+                </Text>
+                <Text>1,448,447,352.21</Text>
+              </Box>
+            </Box>
+          </Flex>
+        </HStack>
+      </HStack>
       <Grid
         p="1em"
-        templateRows="repeat(5, 1fr)"
+        templateRows="repeat(7, 1fr)"
         templateColumns="repeat(4, 1fr)"
         gap={4}
+        minH="calc(100vh - 13em)"
       >
-        <GridItem rowSpan={3} bg={bgPrimaryColor}>
-          <Box>
-            <HStack justify="space-between" p="1em">
-              <Button size="sm" bg={primaryColor} _hover>
-                <Text>BTC</Text>
-              </Button>
-              <Button size="sm" bg _hover _focus _active>
-                <Text>ETH</Text>
-              </Button>
-              <Button size="sm" bg _hover _focus _active>
-                <Text>USDT</Text>
-              </Button>
-            </HStack>
-            <Box px="1em">
-              <InputGroup>
-                <InputLeftElement
-                  pointerEvents="none"
-                  children={
-                    <Icon
-                      fontSize="2xl"
-                      as={FiSearch}
-                      color={textNormalColor}
-                    />
-                  }
-                />
-                <Input border="none" bg={bgNormalColor} placeholder="Search" />
-              </InputGroup>
+        <GridItem
+          d={{ base: 'none', md: 'none', lg: 'block', xl: 'block' }}
+          rowSpan={5}
+          bg={bgPrimaryColor}
+        >
+          <HStack p="1em">
+            <Box>TODO: oder box header</Box>
+            <Box>2</Box>
+            <Box>3</Box>
+          </HStack>
+          <HStack
+            justify="space-between"
+            px="1.5em"
+            fontSize="sm"
+            color={textNormalColor}
+          >
+            <Text flex="1">Price(USDT)</Text>
+            <Text flex="1" textAlign="right">
+              Amount(BTC)
+            </Text>
+            <Text flex="1" textAlign="right">
+              Total
+            </Text>
+          </HStack>
+          {new Array(15).fill('').map((e, idx) => (
+            <Box
+              d="flex"
+              alignItems="stretch"
+              justify="space-between"
+              p="0.5em 1.5em"
+              fontSize="sm"
+              pos="relative"
+              my="0.25em"
+            >
+              <Text flex="1" zIndex="2" color={fluctuationsColors.down}>
+                31257.45
+              </Text>
+              <Text
+                flex="1"
+                textAlign="right"
+                zIndex="2"
+                color={textPrimaryColor}
+              >
+                0.04231
+              </Text>
+              <Text
+                flex="1"
+                textAlign="right"
+                zIndex="2"
+                color={textPrimaryColor}
+              >
+                500321
+              </Text>
+              <Box
+                bg={fluctuationsColors.down}
+                opacity="0.2"
+                pos="absolute"
+                left="0"
+                top="0"
+                borderBottom="0"
+                right={`${100 - (20 - idx) * 2}%`}
+                h="100%"
+                zIndex="1"
+              />
             </Box>
+          ))}
+          <HStack justify="space-between" px="1.5em">
+            <Text as="b" fontSize="xl">
+              31,869.80
+            </Text>
+            <HStack>
+              <Text
+                fontSize="sm"
+                cursor="pointer"
+                _hover={{
+                  color: primaryColor,
+                }}
+              >
+                More
+              </Text>
+              <Icon as={FaSignal} color={fluctuationsColors.up} />
+            </HStack>
+          </HStack>
+          {new Array(15).fill('').map((e, idx) => (
+            <Box
+              d="flex"
+              alignItems="stretch"
+              justify="space-between"
+              p="0.5em 1.5em"
+              fontSize="sm"
+              pos="relative"
+              my="0.25em"
+            >
+              <Text flex="1" zIndex="2" color={fluctuationsColors.up}>
+                31257.45
+              </Text>
+              <Text
+                flex="1"
+                textAlign="right"
+                zIndex="2"
+                color={textPrimaryColor}
+              >
+                0.04231
+              </Text>
+              <Text
+                flex="1"
+                textAlign="right"
+                zIndex="2"
+                color={textPrimaryColor}
+              >
+                500321
+              </Text>
+              <Box
+                bg={fluctuationsColors.up}
+                opacity="0.2"
+                pos="absolute"
+                left="0"
+                top="0"
+                borderBottom="0"
+                right={`${100 - (idx + 11) * 3}%`}
+                h="100%"
+                zIndex="1"
+              />
+            </Box>
+          ))}
+        </GridItem>
+        <GridItem
+          rowSpan={{ base: 7, lg: 3, xl: 3 }}
+          colSpan={{ base: 4, lg: 3, xl: 2 }}
+          bg={bgPrimaryColor}
+        >
+          {/* <HStack>
+              <Text>Time</Text>
+              <Text>15m</Text>
+              <Text>1H</Text>
+              <Text>4H</Text>
+            </HStack> */}
+          <Box h="100%">
+            <KLineChart h="100%" />
+          </Box>
+        </GridItem>
+        <GridItem
+          d={{ base: 'none', xl: 'block' }}
+          rowSpan={3}
+          bg={bgPrimaryColor}
+          pos="relative"
+        >
+          <HStack justify="space-between" p="1em">
+            <Button size="sm" bg={primaryColor} _hover>
+              <Text>BTC</Text>
+            </Button>
+            <Button size="sm" bg _hover _focus _active>
+              <Text>ETH</Text>
+            </Button>
+            <Button size="sm" bg _hover _focus _active>
+              <Text>USDT</Text>
+            </Button>
+          </HStack>
+          <Box px="1em">
+            <InputGroup>
+              <InputLeftElement
+                pointerEvents="none"
+                children={
+                  <Icon fontSize="2xl" as={FiSearch} color={textNormalColor} />
+                }
+              />
+              <Input border="none" bg={bgNormalColor} placeholder="Search" />
+            </InputGroup>
+          </Box>
 
-            <Box>
-              {new Array(10).fill(1).map((e, idx) => (
-                <HStack
-                  justify="space-between"
-                  p="0.75em 1.5em"
-                  cursor="pointer"
-                  _hover={{
-                    bg: bgSubPrimaryColor,
-                  }}
-                >
-                  <Icon fontSize="" as={AiFillStar} color={primaryColor} />
+          <Box
+            pos="absolute"
+            left="0"
+            right="0"
+            bottom="1em"
+            top="7em"
+            overflowY="scroll"
+          >
+            {new Array(15).fill(1).map((e, idx) => (
+              <HStack
+                p="0.75em 1.5em"
+                cursor="pointer"
+                _hover={{
+                  bg: bgSubPrimaryColor,
+                }}
+              >
+                <Icon as={AiFillStar} color={primaryColor} mr="3em" />
+                <HStack flex="1" justify="space-between">
                   <Text>HDD</Text>
                   <Text>{e * 0.01 * (idx + 1)}</Text>
                   <HStack>
                     <Text>0.5</Text>
                     <Icon
-                      fontSize=""
                       as={idx % 4 === 0 ? VscArrowSmallDown : VscArrowSmallUp}
                       color={
                         idx % 2 === 0
@@ -93,56 +329,12 @@ const Trade = () => {
                     />
                   </HStack>
                 </HStack>
-              ))}
-            </Box>
+              </HStack>
+            ))}
           </Box>
         </GridItem>
-        <GridItem rowSpan={3} colSpan={2} bg={bgPrimaryColor}>
-          <Box h="100%" p="1em">
-            <HStack>
-              <Icon fontSize="4xl" as={FaBitcoin} color={primaryColor} />
-              <Text>BTC/USDT</Text>
-            </HStack>
-            <HStack spacing={8}>
-              <Text fontSize="3xl" color={fluctuationsColors.up}>
-                31,590.62
-              </Text>
-
-              <Box fontSize="xs">
-                <Text color={textNormalColor}>24h Change</Text>
-                <Text>161.35 +0.51%</Text>
-              </Box>
-              <Box fontSize="xs">
-                <Text color={textNormalColor}>24h High</Text>
-                <Text>32,249.18</Text>
-              </Box>
-              <Box fontSize="xs">
-                <Text color={textNormalColor}>24h Low</Text>
-                <Text>32,249.18</Text>
-              </Box>
-              <Box fontSize="xs">
-                <Text color={textNormalColor}>24h Volume(BTC)</Text>
-                <Text>45,791.05</Text>
-              </Box>
-              <Box fontSize="xs">
-                <Text color={textNormalColor}>24h Volume(USDT)</Text>
-                <Text>1,448,447,352.21</Text>
-              </Box>
-            </HStack>
-            {/* <HStack>
-              <Text>Time</Text>
-              <Text>15m</Text>
-              <Text>1H</Text>
-              <Text>4H</Text>
-            </HStack> */}
-            <Box h="calc(100% - 4em)">
-              <KLineChart h="100%" />
-            </Box>
-          </Box>
-        </GridItem>
-        <GridItem rowSpan={5} bg={bgPrimaryColor} />
-        <GridItem rowSpan={2} bg={bgPrimaryColor} />
-        <GridItem rowSpan={2} colSpan={2} bg={bgPrimaryColor} />
+        {/* <GridItem rowSpan={2} colSpan={2} bg={bgPrimaryColor} />
+        <GridItem rowSpan={2} bg={bgPrimaryColor} /> */}
       </Grid>
     </Box>
   );

@@ -5,7 +5,6 @@ const Logo = ({ color }) => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 5120 1024"
-      class="css-4fx19t"
       fill={color}
     >
       <path
