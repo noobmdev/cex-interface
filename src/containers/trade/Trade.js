@@ -9,22 +9,16 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
-  Table,
-  Td,
   Text,
-  Th,
-  VStack,
 } from '@chakra-ui/react';
-import { headerHeight } from 'constants/styles.constant';
+import KLineChart from 'components/trade/KLineChart';
+import { fluctuationsColors } from 'constants/styles.constant';
 import useColors from 'hooks/useColors';
 import React from 'react';
-import { FiSearch } from 'react-icons/fi';
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
-import { VscArrowSmallDown, VscArrowSmallUp } from 'react-icons/vsc';
-import { FaBitcoin } from 'react-icons/fa';
+import { AiFillStar } from 'react-icons/ai';
 import { FaSignal } from 'react-icons/fa';
-import { fluctuationsColors } from 'constants/styles.constant';
-import KLineChart from 'components/trade/KLineChart';
+import { FiSearch } from 'react-icons/fi';
+import { VscArrowSmallDown, VscArrowSmallUp } from 'react-icons/vsc';
 
 const Trade = () => {
   const {
@@ -122,14 +116,14 @@ const Trade = () => {
       </HStack>
       <Grid
         p="1em"
-        templateRows="repeat(7, 1fr)"
+        templateRows="repeat(6, 1fr)"
         templateColumns="repeat(4, 1fr)"
         gap={4}
-        minH="calc(100vh - 13em)"
+        minH="calc(100vh - 14.5em)"
       >
         <GridItem
           d={{ base: 'none', md: 'none', lg: 'block', xl: 'block' }}
-          rowSpan={5}
+          rowSpan={4}
           bg={bgPrimaryColor}
         >
           <HStack p="1em">
@@ -151,7 +145,7 @@ const Trade = () => {
               Total
             </Text>
           </HStack>
-          {new Array(15).fill('').map((e, idx) => (
+          {new Array(10).fill('').map((e, idx) => (
             <Box
               d="flex"
               alignItems="stretch"
@@ -160,6 +154,7 @@ const Trade = () => {
               fontSize="sm"
               pos="relative"
               my="0.25em"
+              fontSize="sm"
             >
               <Text flex="1" zIndex="2" color={fluctuationsColors.down}>
                 31257.45
@@ -210,7 +205,7 @@ const Trade = () => {
               <Icon as={FaSignal} color={fluctuationsColors.up} />
             </HStack>
           </HStack>
-          {new Array(15).fill('').map((e, idx) => (
+          {new Array(10).fill('').map((e, idx) => (
             <Box
               d="flex"
               alignItems="stretch"
@@ -219,6 +214,7 @@ const Trade = () => {
               fontSize="sm"
               pos="relative"
               my="0.25em"
+              fontSize="sm"
             >
               <Text flex="1" zIndex="2" color={fluctuationsColors.up}>
                 31257.45
@@ -254,7 +250,7 @@ const Trade = () => {
           ))}
         </GridItem>
         <GridItem
-          rowSpan={{ base: 7, lg: 3, xl: 3 }}
+          rowSpan={{ base: 6, lg: 2, xl: 2 }}
           colSpan={{ base: 4, lg: 3, xl: 2 }}
           bg={bgPrimaryColor}
         >
@@ -270,7 +266,7 @@ const Trade = () => {
         </GridItem>
         <GridItem
           d={{ base: 'none', xl: 'block' }}
-          rowSpan={3}
+          rowSpan={2}
           bg={bgPrimaryColor}
           pos="relative"
         >
@@ -333,8 +329,8 @@ const Trade = () => {
             ))}
           </Box>
         </GridItem>
-        {/* <GridItem rowSpan={2} colSpan={2} bg={bgPrimaryColor} />
-        <GridItem rowSpan={2} bg={bgPrimaryColor} /> */}
+        <GridItem rowSpan={2} colSpan={2} bg={bgPrimaryColor} />
+        <GridItem rowSpan={2} bg={bgPrimaryColor} />
       </Grid>
     </Box>
   );

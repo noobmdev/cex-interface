@@ -28,6 +28,7 @@ const KLineChart = ({ w, h }) => {
     return () => {
       dispose('chart-container');
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <div id="chart-container" style={{ width: w, height: h }}></div>;
