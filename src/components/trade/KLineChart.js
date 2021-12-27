@@ -3,7 +3,6 @@ import { init, dispose } from 'klinecharts';
 import generatedKLineDataList from './generatedLineDataList';
 
 const KLineChart = ({ w, h }) => {
-  console.log(w, h);
   function updateData(kLineChart) {
     setTimeout(() => {
       if (kLineChart) {
