@@ -3,7 +3,6 @@ import { init, dispose } from 'klinecharts';
 import generatedKLineDataList from './generatedLineDataList';
 
 const KLineChart = ({ w, h }) => {
-  console.log(w, h);
   function updateData(kLineChart) {
     setTimeout(() => {
       if (kLineChart) {
@@ -28,6 +27,7 @@ const KLineChart = ({ w, h }) => {
     return () => {
       dispose('chart-container');
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <div id="chart-container" style={{ width: w, height: h }}></div>;

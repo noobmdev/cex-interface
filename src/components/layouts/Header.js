@@ -1,29 +1,17 @@
-import {
-  Box,
-  Button,
-  HStack,
-  Icon,
-  Text,
-  useBreakpointValue,
-} from '@chakra-ui/react';
+import { Box, Button, HStack, Icon, Text } from '@chakra-ui/react';
 import Logo from 'assets/svg/Logo';
 import { ColorModeSwitcher } from 'components/common/ColorModeSwitcher';
 import CustomLink from 'components/common/CustomLink';
+import { headerHeight } from 'constants/styles.constant';
 import useColors from 'hooks/useColors';
 import React from 'react';
-import { MdArrowDropDown } from 'react-icons/md';
 import { HiOutlineMenu } from 'react-icons/hi';
+import { MdArrowDropDown } from 'react-icons/md';
 import { Link } from 'react-router-dom';
-import { headerHeight } from 'constants/styles.constant';
 
 const Header = () => {
-  const {
-    bgPrimaryColor,
-    bgNormalColor,
-    primaryColor,
-    textPrimaryColor,
-    borderColor,
-  } = useColors();
+  const { bgPrimaryColor, primaryColor, textPrimaryColor, borderColor } =
+    useColors();
 
   return (
     <HStack

@@ -7,4 +7,5 @@ export const tradeTypes = {
 export const tradeLayouts = {
   BASIC: 'basic',
   ADVANCED: 'pro',
+  FEATURE: 'feature',
 };
